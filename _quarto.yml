@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/
+      - icon: twitter
+        href: https://twitter.com
+    left:
+      - text: "Posts"
+        href: index.qmd
+      - text: "Code snippets"
+        href: code-snippets.qmd
+
+  sidebar:
+    - title: "Tutorials"
+      style: "docked"
+      background: light
+      contents: 
+        - section: Xarray
+          contents: code-snippets/xarray/*.qmd
+        - section: Dask
+          contents: code-snippets/dask/*.qmd
+        - section: Sqlalchemy
+          contents: code-snippets/sqlalchemy/*.ipynb
+        
+
+format:
+  html:
+    theme: simplex
+    css: styles.css
+
+
+

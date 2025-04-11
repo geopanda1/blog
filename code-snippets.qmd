@@ -1,0 +1,9 @@
+---
+title: "Code snippets"
+image: profile.jpg
+about:
+  template: jolla
+---
+
+
+Various pieces of code I regularily use.

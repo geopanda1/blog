@@ -1,0 +1,17 @@
+---
+title: "Geosphere Download Package"
+#author: "Harlow Malloc"
+date: "2025-04-07"
+categories: [python-package]
+image: "image.jpg"
+---
+
+Download package for station data from geosphere austria
+
+```python
+for i in range(10):
+    print(i)
+```
+
+
+<!-- {{< include test.html >}} -->
