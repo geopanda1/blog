@@ -22,9 +22,9 @@ website:
       background: light
       contents: 
         - section: Xarray
-          contents: code-snippets/xarray/*.qmd
+          contents: code-snippets/xarray/*.ipynb
         - section: Dask
-          contents: code-snippets/dask/*.qmd
+          contents: code-snippets/dask/*.ipynb
         - section: Sqlalchemy
           contents: code-snippets/sqlalchemy/*.ipynb
         
