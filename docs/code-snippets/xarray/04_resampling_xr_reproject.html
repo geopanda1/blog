@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-11">
+<meta name="dcterms.date" content="2025-04-25">
 
-<title>Dask-backed (lazy) resampling</title>
+<title>Lazy resampling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Dask-backed (lazy) resampling</h1>
+      <h1 class="quarto-secondary-nav-title">Lazy resampling</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -195,17 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../code-snippets/xarray/04_resampling_xr_reproject.html" class="sidebar-item-text sidebar-link active">Dask-backed (lazy) resampling</a>
+  <a href="../../code-snippets/xarray/00_rf_predict_map_blocks.html" class="sidebar-item-text sidebar-link">ds.map_blocks(…)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../code-snippets/xarray/01_rf_predict_map_blocks.html" class="sidebar-item-text sidebar-link">ds.map_blocks(…)</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../code-snippets/xarray/03_resampling_rioxarray.html" class="sidebar-item-text sidebar-link">Resampling rioxarray</a>
+  <a href="../../code-snippets/xarray/01_rf_predict_apply_ufunc.html" class="sidebar-item-text sidebar-link">xr.apply_ufunc(…)</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -215,19 +210,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../code-snippets/xarray/00_rf_predict_apply_ufunc.html" class="sidebar-item-text sidebar-link">xr.apply_ufunc(…)</a>
+  <a href="../../code-snippets/xarray/03_resampling_rioxarray.html" class="sidebar-item-text sidebar-link">Resampling rioxarray</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/04_resampling_xr_reproject.html" class="sidebar-item-text sidebar-link active">Lazy resampling</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Dask</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Data download</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/data-download/00_download_s2_stac_asset.html" class="sidebar-item-text sidebar-link">stac-asset</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/data-download/01_download_s2_odc-stac.html" class="sidebar-item-text sidebar-link">odc.stack.stac_load</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Dask</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code-snippets/dask/00_local_cluster.html" class="sidebar-item-text sidebar-link">Local cluster</a>
@@ -237,12 +257,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Sqlalchemy</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sqlalchemy</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code-snippets/sqlalchemy/00_relations.html" class="sidebar-item-text sidebar-link">Relations</a>
@@ -251,6 +271,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code-snippets/sqlalchemy/01_views.html" class="sidebar-item-text sidebar-link">View with model</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Joblib</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/joblib/00_parallel_everything.html" class="sidebar-item-text sidebar-link">Multithreading and -processing with joblib</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Requests</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/requests/00_get_request.html" class="sidebar-item-text sidebar-link">requests module</a>
   </div>
 </li>
       </ul>
@@ -265,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Dask-backed (lazy) resampling</h1>
+<h1 class="title d-none d-lg-block">Lazy resampling</h1>
   <div class="quarto-categories">
     <div class="quarto-category">xarray</div>
   </div>
@@ -279,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 11, 2025</p>
+      <p class="date">April 25, 2025</p>
     </div>
   </div>
   
@@ -289,27 +339,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="example-on-how-to-spatially-resample-a-xarray-dataset-or-dataarray-with-dask-using-odc.algo.xr_reproject" class="level2">
-<h2 class="anchored" data-anchor-id="example-on-how-to-spatially-resample-a-xarray-dataset-or-dataarray-with-dask-using-odc.algo.xr_reproject">Example on how to spatially resample a xarray Dataset or DataArray with dask using <code>odc.algo.xr_reproject</code></h2>
+<section id="example-on-how-to-lazily-resample-a-xarray-dataset-or-dataarray-with-dask-using-odc.geo.xr.xr_reproject" class="level2">
+<h2 class="anchored" data-anchor-id="example-on-how-to-lazily-resample-a-xarray-dataset-or-dataarray-with-dask-using-odc.geo.xr.xr_reproject">Example on how to lazily resample a xarray Dataset or Dataarray with dask using <code>odc.geo.xr.xr_reproject</code></h2>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rioxarray</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.enums <span class="im">import</span> Resampling</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> odc.algo <span class="im">import</span> xr_reproject</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> odc.geo.geobox <span class="im">import</span> GeoBox <span class="im">as</span> GeoBox_, BoundingBox</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datacube.utils.geometry <span class="im">import</span> GeoBox</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> affine <span class="im">import</span> Affine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.enums <span class="im">import</span> Resampling</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> odc.geo</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> odc.geo.xr <span class="im">import</span> xr_reproject</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> odc.geo.geobox <span class="im">import</span> GeoBox, BoundingBox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> webcam_to_01(snow_cover: xr.DataArray):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> xr.where(snow_cover <span class="op">==</span> <span class="dv">2</span>, <span class="dv">0</span>, snow_cover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.version)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xr.__version__)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(odc.geo.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.13.1 | packaged by conda-forge | (main, Dec  5 2024, 21:23:54) [GCC 13.3.0]
+2025.3.1
+0.4.10</code></pre>
 </div>
+</div>
+<p>The following function is only to simluate that the crs, while initially present on the opened dataset, can get lost easily along the way in workflows, leading to the reprojection to fail. This is not a shortcoming of xarray or <code>xr_reproject</code>, but I want to document it, as this happened to me several times before.</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ds_webcam <span class="op">=</span> xr.open_zarr(<span class="st">"./data/webcam_snow_cover.zarr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> replace_2_by_0(da: xr.DataArray) <span class="op">-&gt;</span> xr.DataArray:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Replace 2s by 0"""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> da.where(da <span class="op">!=</span> <span class="dv">2</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ds_webcam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ds_webcam <span class="op">=</span> xr.open_zarr(<span class="st">"./data/webcam_snow_cover.zarr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ds_webcam[<span class="st">"nodata"</span>] <span class="op">=</span> np.nan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-that-important-info-on-crs-is-present" class="level2">
+<h2 class="anchored" data-anchor-id="check-that-important-info-on-crs-is-present">Check that important info on crs is present</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> ds_webcam.odc.geobox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> ds_webcam.odc.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="construct-geobox-needed-for-xr_reproject" class="level3">
+<h3 class="anchored" data-anchor-id="construct-geobox-needed-for-xr_reproject">Construct geobox needed for <code>xr_reproject</code></h3>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>xmin, xmax <span class="op">=</span> <span class="fl">656320.0</span>, <span class="fl">661020.0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ymax, ymin <span class="op">=</span> <span class="fl">5213480.0</span>, <span class="fl">5209240.0</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>lower_res <span class="op">=</span> <span class="dv">20</span> <span class="co"># target resolution in meters</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>epsg_code <span class="op">=</span> <span class="dv">25832</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> BoundingBox(left<span class="op">=</span>xmin, top<span class="op">=</span>ymax, bottom<span class="op">=</span>ymin, right<span class="op">=</span>xmax)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>geobox <span class="op">=</span> GeoBox.from_bbox(bbox<span class="op">=</span>bbox, crs<span class="op">=</span>epsg_code, resolution<span class="op">=</span>lower_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="perform-computation-on-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="perform-computation-on-dataset">Perform computation on dataset</h2>
+<p>I sometimes use <code>xr.DataArray</code> objects in computations. It is easy to oversee that the data array (here <code>ds_webcam.snow_cover</code>) does not inherit or carry over all the important information (<code>.odc.crs</code> and <code>.odc.geobox</code>) present on the parent dataset object (<code>ds_webcam</code>) when used in computations.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># perform the dummy operation</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>snow_cover <span class="op">=</span> replace_2_by_0(ds_webcam.snow_cover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geobox is present!</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> snow_cover.odc.geobox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/&lt;user&gt;/miniconda3/envs/satpy/lib/python3.13/site-packages/odc/geo/_xr_interop.py:503: UserWarning: grid_mapping=spatial_ref is not pointing to valid coordinate
+  warnings.warn(</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but the crs is not (as the above warning indicates)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>snow_cover.odc.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To me this was initially counter intuitive, as the parent dataset has the complete information:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ds_webcam.odc.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>CRS('PROJCS["ETRS89 / UTM zone 32N",GEOGCS["ETRS89",DATUM["European_Terrestrial_Reference_System_1989",SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],AUTHORITY["EPSG","6258"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4258"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","25832"]]')</code></pre>
+</div>
+</div>
+<p>Let’s fix that:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>snow_cover <span class="op">=</span> snow_cover.odc.assign_crs(<span class="st">"epsg:25832"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-source-no-data-value-and-set-correctly" class="level2">
+<h2 class="anchored" data-anchor-id="check-source-no-data-value-and-set-correctly">Check source no data value and set correctly</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show that nodata attribute is missing</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">getattr</span>(snow_cover, <span class="st">"nodata"</span>, <span class="va">None</span>) <span class="kw">is</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add nodata attribute</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>snow_cover[<span class="st">"nodata"</span>] <span class="op">=</span> np.nan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="perform-lazy-resampling" class="level2">
+<h2 class="anchored" data-anchor-id="perform-lazy-resampling">Perform lazy resampling</h2>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled <span class="op">=</span> xr_reproject(snow_cover, geobox, resampling<span class="op">=</span>Resampling.mode)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled.name <span class="op">=</span> <span class="st">"snow_cover"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Which returns a dask-backed dataarray:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 
 <div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
@@ -681,17 +820,16 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class="xr-text-repr-fallback">&lt;xarray.Dataset&gt; Size: 160MB
-Dimensions:      (time: 1, y: 4250, x: 4700)
+</style><pre class="xr-text-repr-fallback">&lt;xarray.DataArray 'snow_cover' (time: 1, y: 212, x: 235)&gt; Size: 399kB
+dask.array&lt;reproject, shape=(1, 212, 235), dtype=float64, chunksize=(1, 212, 235), chunktype=numpy.ndarray&gt;
 Coordinates:
   * time         (time) datetime64[ns] 8B 2021-07-15
-  * x            (x) float64 38kB 6.563e+05 6.563e+05 ... 6.61e+05 6.61e+05
-  * y            (y) float64 34kB 5.213e+06 5.213e+06 ... 5.209e+06 5.209e+06
-Data variables:
-    snow_cover   (time, y, x) float64 160MB dask.array&lt;chunksize=(1, 1024, 1024), meta=np.ndarray&gt;
-    spatial_ref  int64 8B ...</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-298193ff-69c6-469e-8ccc-18910d571bff" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-298193ff-69c6-469e-8ccc-18910d571bff" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">time</span>: 1</li><li><span class="xr-has-index">y</span>: 4250</li><li><span class="xr-has-index">x</span>: 4700</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-fd5eddc4-4f81-4d4c-b0f6-6c01c752a271" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-fd5eddc4-4f81-4d4c-b0f6-6c01c752a271" class="xr-section-summary">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">2021-07-15</div><input id="attrs-efe59722-573b-49fd-aab4-272e530b0fb4" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-efe59722-573b-49fd-aab4-272e530b0fb4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-fe19353f-5dbc-4e74-8fbc-c3ae341a4132" class="xr-var-data-in" type="checkbox"><label for="data-fe19353f-5dbc-4e74-8fbc-c3ae341a4132" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['2021-07-15T00:00:00.000000000'], dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">x</span></div><div class="xr-var-dims">(x)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">6.563e+05 6.563e+05 ... 6.61e+05</div><input id="attrs-e530e030-6dd6-4aab-a54a-3e11b63cca0c" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-e530e030-6dd6-4aab-a54a-3e11b63cca0c" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-610d7567-5e3b-4311-b72d-3638e55f9e40" class="xr-var-data-in" type="checkbox"><label for="data-610d7567-5e3b-4311-b72d-3638e55f9e40" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([656320.5, 656321.5, 656322.5, ..., 661017.5, 661018.5, 661019.5],
-      shape=(4700,))</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">y</span></div><div class="xr-var-dims">(y)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">5.213e+06 5.213e+06 ... 5.209e+06</div><input id="attrs-ec2ce26a-97e2-4a99-8e0b-140ce9e1a615" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ec2ce26a-97e2-4a99-8e0b-140ce9e1a615" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-4c0270b4-dfd5-4ee5-ad65-753e7adb5d18" class="xr-var-data-in" type="checkbox"><label for="data-4c0270b4-dfd5-4ee5-ad65-753e7adb5d18" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([5213489.5, 5213488.5, 5213487.5, ..., 5209242.5, 5209241.5, 5209240.5],
-      shape=(4250,))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-dcf53bbe-6711-47da-8793-e18d29e5708d" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-dcf53bbe-6711-47da-8793-e18d29e5708d" class="xr-section-summary">Data variables: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>snow_cover</span></div><div class="xr-var-dims">(time, y, x)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">dask.array&lt;chunksize=(1, 1024, 1024), meta=np.ndarray&gt;</div><input id="attrs-3e6e5923-bd55-4b43-bef7-582c0b9a32d2" class="xr-var-attrs-in" type="checkbox"><label for="attrs-3e6e5923-bd55-4b43-bef7-582c0b9a32d2" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f6bfaa33-c6e7-4d33-b7cd-1010cd0c97f6" class="xr-var-data-in" type="checkbox"><label for="data-f6bfaa33-c6e7-4d33-b7cd-1010cd0c97f6" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>AREA_OR_POINT :</span></dt><dd>Area</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class="xr-var-data"><table>
+    nodata       float64 8B nan
+  * y            (y) float64 2kB 5.213e+06 5.213e+06 ... 5.209e+06 5.209e+06
+  * x            (x) float64 2kB 6.563e+05 6.564e+05 ... 6.61e+05 6.61e+05
+    spatial_ref  int32 4B 25832
+Attributes:
+    AREA_OR_POINT:  Area</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.DataArray</div><div class="xr-array-name">'snow_cover'</div><ul class="xr-dim-list"><li><span class="xr-has-index">time</span>: 1</li><li><span class="xr-has-index">y</span>: 212</li><li><span class="xr-has-index">x</span>: 235</li></ul></div><ul class="xr-sections"><li class="xr-section-item"><div class="xr-array-wrap"><input id="section-257825c1-86be-4d9b-a022-33bab81433b7" class="xr-array-in" type="checkbox" checked=""><label for="section-257825c1-86be-4d9b-a022-33bab81433b7" title="Show/hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-array-preview xr-preview"><span>dask.array&lt;chunksize=(1, 212, 235), meta=np.ndarray&gt;</span></div><div class="xr-array-data"><table>
     <tbody><tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -706,18 +844,18 @@ Data variables:
                     
                     <tr>
                         <th> Bytes </th>
-                        <td> 152.40 MiB </td>
-                        <td> 8.00 MiB </td>
+                        <td> 389.22 kiB </td>
+                        <td> 389.22 kiB </td>
                     </tr>
                     
                     <tr>
                         <th> Shape </th>
-                        <td> (1, 4250, 4700) </td>
-                        <td> (1, 1024, 1024) </td>
+                        <td> (1, 212, 235) </td>
+                        <td> (1, 212, 235) </td>
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 25 chunks in 2 graph layers </td>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -731,10 +869,6 @@ Data variables:
 
   <!-- Horizontal lines -->
   <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2"></line>
-  <line x1="10" y1="26" x2="24" y2="41"></line>
-  <line x1="10" y1="52" x2="24" y2="67"></line>
-  <line x1="10" y1="78" x2="24" y2="93"></line>
-  <line x1="10" y1="104" x2="24" y2="119"></line>
   <line x1="10" y1="108" x2="24" y2="123" style="stroke-width:2"></line>
 
   <!-- Vertical lines -->
@@ -742,7 +876,7 @@ Data variables:
   <line x1="24" y1="14" x2="24" y2="123" style="stroke-width:2"></line>
 
   <!-- Colored Rectangle -->
-  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,123.45923624762673 10.0,108.51063829787233" style="fill:#ECB172A0;stroke-width:0"></polygon>
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,123.20391709869058 10.0,108.25531914893618" style="fill:#ECB172A0;stroke-width:0"></polygon>
 
   <!-- Horizontal lines -->
   <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2"></line>
@@ -750,10 +884,6 @@ Data variables:
 
   <!-- Vertical lines -->
   <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2"></line>
-  <line x1="36" y1="0" x2="51" y2="14"></line>
-  <line x1="62" y1="0" x2="77" y2="14"></line>
-  <line x1="88" y1="0" x2="103" y2="14"></line>
-  <line x1="114" y1="0" x2="129" y2="14"></line>
   <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2"></line>
 
   <!-- Colored Rectangle -->
@@ -761,152 +891,43 @@ Data variables:
 
   <!-- Horizontal lines -->
   <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2"></line>
-  <line x1="24" y1="41" x2="144" y2="41"></line>
-  <line x1="24" y1="67" x2="144" y2="67"></line>
-  <line x1="24" y1="93" x2="144" y2="93"></line>
-  <line x1="24" y1="119" x2="144" y2="119"></line>
   <line x1="24" y1="123" x2="144" y2="123" style="stroke-width:2"></line>
 
   <!-- Vertical lines -->
   <line x1="24" y1="14" x2="24" y2="123" style="stroke-width:2"></line>
-  <line x1="51" y1="14" x2="51" y2="123"></line>
-  <line x1="77" y1="14" x2="77" y2="123"></line>
-  <line x1="103" y1="14" x2="103" y2="123"></line>
-  <line x1="129" y1="14" x2="129" y2="123"></line>
   <line x1="144" y1="14" x2="144" y2="123" style="stroke-width:2"></line>
 
   <!-- Colored Rectangle -->
-  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,123.45923624762673 24.9485979497544,123.45923624762673" style="fill:#ECB172A0;stroke-width:0"></polygon>
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,123.20391709869058 24.9485979497544,123.20391709869058" style="fill:#ECB172A0;stroke-width:0"></polygon>
 
   <!-- Text -->
-  <text x="84.948598" y="143.459236" font-size="1.0rem" font-weight="100" text-anchor="middle">4700</text>
-  <text x="164.948598" y="69.203917" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,69.203917)">4250</text>
-  <text x="7.474299" y="135.984937" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,135.984937)">1</text>
+  <text x="84.948598" y="143.203917" font-size="1.0rem" font-weight="100" text-anchor="middle">235</text>
+  <text x="164.948598" y="69.076258" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,69.076258)">212</text>
+  <text x="7.474299" y="135.729618" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,135.729618)">1</text>
 </svg>
         </td>
     </tr>
-</tbody></table></div></li><li class="xr-var-item"><div class="xr-var-name"><span>spatial_ref</span></div><div class="xr-var-dims">()</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">...</div><input id="attrs-296b1e62-ec93-4a9c-ba1f-b64dbb4c2d1c" class="xr-var-attrs-in" type="checkbox"><label for="attrs-296b1e62-ec93-4a9c-ba1f-b64dbb4c2d1c" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-ce9e67d3-f634-4dfc-b1f3-8b76fdeacfaf" class="xr-var-data-in" type="checkbox"><label for="data-ce9e67d3-f634-4dfc-b1f3-8b76fdeacfaf" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>GeoTransform :</span></dt><dd>656320.0 1.0 0.0 5213490.0 0.0 -1.0</dd><dt><span>crs_wkt :</span></dt><dd>PROJCS["ETRS89 / UTM zone 32N",GEOGCS["ETRS89",DATUM["European_Terrestrial_Reference_System_1989",SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],AUTHORITY["EPSG","6258"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4258"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","25832"]]</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>geographic_crs_name :</span></dt><dd>ETRS89</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>horizontal_datum_name :</span></dt><dd>European Terrestrial Reference System 1989</dd><dt><span>inverse_flattening :</span></dt><dd>298.257222101</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>9.0</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>projected_crs_name :</span></dt><dd>ETRS89 / UTM zone 32N</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>GRS 1980</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314140356</dd><dt><span>spatial_ref :</span></dt><dd>PROJCS["ETRS89 / UTM zone 32N",GEOGCS["ETRS89",DATUM["European_Terrestrial_Reference_System_1989",SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],AUTHORITY["EPSG","6258"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4258"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","25832"]]</dd></dl></div><div class="xr-var-data"><pre>[1 values with dtype=int64]</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f72d37a9-58cd-4451-be0f-eb2d66402289" class="xr-section-summary-in" type="checkbox"><label for="section-f72d37a9-58cd-4451-be0f-eb2d66402289" class="xr-section-summary">Indexes: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>time</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-aafdb83b-bba0-4710-b22a-6bc0e6ef0d72" class="xr-index-data-in" type="checkbox"><label for="index-aafdb83b-bba0-4710-b22a-6bc0e6ef0d72" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(DatetimeIndex(['2021-07-15'], dtype='datetime64[ns]', name='time', freq=None))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>x</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-060b2104-bab6-45a0-896b-36943fbf712b" class="xr-index-data-in" type="checkbox"><label for="index-060b2104-bab6-45a0-896b-36943fbf712b" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index([656320.5, 656321.5, 656322.5, 656323.5, 656324.5, 656325.5, 656326.5,
-       656327.5, 656328.5, 656329.5,
+</tbody></table></div></div></li><li class="xr-section-item"><input id="section-6f71f6f5-7dbc-4424-a193-db922a28d9a0" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-6f71f6f5-7dbc-4424-a193-db922a28d9a0" class="xr-section-summary">Coordinates: <span>(5)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">2021-07-15</div><input id="attrs-a60acede-7a07-4cf1-9fb3-3d872c7b1b74" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-a60acede-7a07-4cf1-9fb3-3d872c7b1b74" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-2c6a1f8f-2c26-4f99-8595-c3088e2e7d47" class="xr-var-data-in" type="checkbox"><label for="data-2c6a1f8f-2c26-4f99-8595-c3088e2e7d47" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['2021-07-15T00:00:00.000000000'], dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>nodata</span></div><div class="xr-var-dims">()</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">nan</div><input id="attrs-8430a557-6a1f-48cc-8b34-107edd134c29" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-8430a557-6a1f-48cc-8b34-107edd134c29" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-274f6a85-c5fa-4163-9cc7-925ff48493dc" class="xr-var-data-in" type="checkbox"><label for="data-274f6a85-c5fa-4163-9cc7-925ff48493dc" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(nan)</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">y</span></div><div class="xr-var-dims">(y)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">5.213e+06 5.213e+06 ... 5.209e+06</div><input id="attrs-e2b2d26d-4bd5-4154-a168-b21a0958a9ff" class="xr-var-attrs-in" type="checkbox"><label for="attrs-e2b2d26d-4bd5-4154-a168-b21a0958a9ff" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-ff07911a-05f7-4f9c-a712-2bd3cee8b184" class="xr-var-data-in" type="checkbox"><label for="data-ff07911a-05f7-4f9c-a712-2bd3cee8b184" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-20.0</dd><dt><span>crs :</span></dt><dd>EPSG:25832</dd></dl></div><div class="xr-var-data"><pre>array([5213470., 5213450., 5213430., ..., 5209290., 5209270., 5209250.],
+      shape=(212,))</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">x</span></div><div class="xr-var-dims">(x)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">6.563e+05 6.564e+05 ... 6.61e+05</div><input id="attrs-56a0a034-2be2-4a11-8d22-cc58c44bbedd" class="xr-var-attrs-in" type="checkbox"><label for="attrs-56a0a034-2be2-4a11-8d22-cc58c44bbedd" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f001bd53-8396-468c-9f07-1a14c9d12948" class="xr-var-data-in" type="checkbox"><label for="data-f001bd53-8396-468c-9f07-1a14c9d12948" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>20.0</dd><dt><span>crs :</span></dt><dd>EPSG:25832</dd></dl></div><div class="xr-var-data"><pre>array([656330., 656350., 656370., ..., 660970., 660990., 661010.], shape=(235,))</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>spatial_ref</span></div><div class="xr-var-dims">()</div><div class="xr-var-dtype">int32</div><div class="xr-var-preview xr-preview">25832</div><input id="attrs-e031c749-8439-4344-97af-fe56068d82d3" class="xr-var-attrs-in" type="checkbox"><label for="attrs-e031c749-8439-4344-97af-fe56068d82d3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-8e1772e2-d481-4b31-aeea-175480929771" class="xr-var-data-in" type="checkbox"><label for="data-8e1772e2-d481-4b31-aeea-175480929771" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>spatial_ref :</span></dt><dd>PROJCRS["ETRS89 / UTM zone 32N",BASEGEOGCRS["ETRS89",DATUM["European Terrestrial Reference System 1989",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4258]],CONVERSION["UTM zone 32N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",9,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Europe between 6°E and 12°E: Austria; Denmark - onshore and offshore; Germany - onshore and offshore; Italy - onshore and offshore; Norway including Svalbard - onshore and offshore; Spain - offshore."],BBOX[36.53,6,84.01,12.01]],USAGE[SCOPE["Pan-European conformal mapping at scales larger than 1:500,000."],AREA["Europe between 6°E and 12°E and approximately 36°30'N to 84°N."],BBOX[36.53,6,84.01,12.01]],ID["EPSG",25832]]</dd><dt><span>crs_wkt :</span></dt><dd>PROJCRS["ETRS89 / UTM zone 32N",BASEGEOGCRS["ETRS89",DATUM["European Terrestrial Reference System 1989",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4258]],CONVERSION["UTM zone 32N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",9,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Europe between 6°E and 12°E: Austria; Denmark - onshore and offshore; Germany - onshore and offshore; Italy - onshore and offshore; Norway including Svalbard - onshore and offshore; Spain - offshore."],BBOX[36.53,6,84.01,12.01]],USAGE[SCOPE["Pan-European conformal mapping at scales larger than 1:500,000."],AREA["Europe between 6°E and 12°E and approximately 36°30'N to 84°N."],BBOX[36.53,6,84.01,12.01]],ID["EPSG",25832]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314140356</dd><dt><span>inverse_flattening :</span></dt><dd>298.257222101</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>GRS 1980</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>ETRS89</dd><dt><span>horizontal_datum_name :</span></dt><dd>European Terrestrial Reference System 1989</dd><dt><span>projected_crs_name :</span></dt><dd>ETRS89 / UTM zone 32N</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>9.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>GeoTransform :</span></dt><dd>656320 20 0 5213480 0 -20</dd></dl></div><div class="xr-var-data"><pre>array(25832, dtype=int32)</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f99d262d-4422-4e8c-bbb8-d12d8e68e59e" class="xr-section-summary-in" type="checkbox"><label for="section-f99d262d-4422-4e8c-bbb8-d12d8e68e59e" class="xr-section-summary">Indexes: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>time</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-82f486f6-f065-4f68-83f1-2de966cbdb10" class="xr-index-data-in" type="checkbox"><label for="index-82f486f6-f065-4f68-83f1-2de966cbdb10" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(DatetimeIndex(['2021-07-15'], dtype='datetime64[ns]', name='time', freq=None))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>y</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-4370e690-d7f0-4631-ba4a-5c329f5826dc" class="xr-index-data-in" type="checkbox"><label for="index-4370e690-d7f0-4631-ba4a-5c329f5826dc" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index([5213470.0, 5213450.0, 5213430.0, 5213410.0, 5213390.0, 5213370.0,
+       5213350.0, 5213330.0, 5213310.0, 5213290.0,
        ...
-       661010.5, 661011.5, 661012.5, 661013.5, 661014.5, 661015.5, 661016.5,
-       661017.5, 661018.5, 661019.5],
-      dtype='float64', name='x', length=4700))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>y</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-cde85454-93c4-4bf8-a058-11077d097a82" class="xr-index-data-in" type="checkbox"><label for="index-cde85454-93c4-4bf8-a058-11077d097a82" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index([5213489.5, 5213488.5, 5213487.5, 5213486.5, 5213485.5, 5213484.5,
-       5213483.5, 5213482.5, 5213481.5, 5213480.5,
+       5209430.0, 5209410.0, 5209390.0, 5209370.0, 5209350.0, 5209330.0,
+       5209310.0, 5209290.0, 5209270.0, 5209250.0],
+      dtype='float64', name='y', length=212))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>x</div></div><div class="xr-index-preview">PandasIndex</div><input type="checkbox" disabled=""><label></label><input id="index-e4f0d8a0-ea62-4064-ad45-234028212fdb" class="xr-index-data-in" type="checkbox"><label for="index-e4f0d8a0-ea62-4064-ad45-234028212fdb" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index([656330.0, 656350.0, 656370.0, 656390.0, 656410.0, 656430.0, 656450.0,
+       656470.0, 656490.0, 656510.0,
        ...
-       5209249.5, 5209248.5, 5209247.5, 5209246.5, 5209245.5, 5209244.5,
-       5209243.5, 5209242.5, 5209241.5, 5209240.5],
-      dtype='float64', name='y', length=4250))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-9b04d5dd-fef8-4602-bc05-e3fc2fb04569" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-9b04d5dd-fef8-4602-bc05-e3fc2fb04569" class="xr-section-summary" title="Expand/collapse section">Attributes: <span>(0)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"></dl></div></li></ul></div></div>
+       660830.0, 660850.0, 660870.0, 660890.0, 660910.0, 660930.0, 660950.0,
+       660970.0, 660990.0, 661010.0],
+      dtype='float64', name='x', length=235))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-a903f4d1-3ac1-4b23-b182-f4155931a16f" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-a903f4d1-3ac1-4b23-b182-f4155931a16f" class="xr-section-summary">Attributes: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>AREA_OR_POINT :</span></dt><dd>Area</dd></dl></div></li></ul></div></div>
 </div>
-</div>
-<section id="needs-of-odc.algo.xr_reproject" class="level3">
-<h3 class="anchored" data-anchor-id="needs-of-odc.algo.xr_reproject">Needs of odc.algo.xr_reproject</h3>
-<section id="function-signature" class="level4">
-<h4 class="anchored" data-anchor-id="function-signature">Function signature</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> xr_reproject(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    src: DataArray <span class="op">|</span> Dataset,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    geobox: GeoBox,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    resampling: <span class="bu">str</span> <span class="op">=</span> <span class="st">"nearest"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    chunks: Tuple[<span class="bu">int</span>, <span class="bu">int</span>] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    dst_nodata: NodataType <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">**</span>kwargs: Unknown</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> (DataArray <span class="op">|</span> Dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="gotchas" class="level4">
-<h4 class="anchored" data-anchor-id="gotchas">Gotchas</h4>
-<ul>
-<li><code>geobox: GeoBox</code> is a <code>datacube.utils.geometry</code> not a <code>odc.geo.geobox</code>: this needs to be constructed first (see notes below)</li>
-<li>any <code>src: DataArray | Dataset</code> needs to have a <code>.odc.geobox</code> and <code>.odc.crs</code> attribute.</li>
-</ul>
-</section>
-</section>
-<section id="construction-of-a-geobox" class="level3">
-<h3 class="anchored" data-anchor-id="construction-of-a-geobox">Construction of a geobox</h3>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xmin, xmax <span class="op">=</span> <span class="fl">656320.0</span>, <span class="fl">661020.0</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ymax, ymin <span class="op">=</span> <span class="fl">5213480.0</span>, <span class="fl">5209240.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lower_res <span class="op">=</span> <span class="dv">20</span> <span class="co"># target resolution in meters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="version-1" class="level3">
-<h3 class="anchored" data-anchor-id="version-1">Version 1</h3>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="bu">int</span>((xmax <span class="op">-</span> xmin) <span class="op">/</span> lower_res)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="bu">int</span>((ymax <span class="op">-</span> ymin) <span class="op">/</span> lower_res)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>geobox <span class="op">=</span> GeoBox(</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span>width,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span>height,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    affine<span class="op">=</span>Affine(lower_res, <span class="fl">0.0</span>, xmin, <span class="fl">0.0</span>, lower_res <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>, ymax),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="st">"epsg:25832"</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="version-2" class="level3">
-<h3 class="anchored" data-anchor-id="version-2">Version 2</h3>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> BoundingBox(left<span class="op">=</span>xmin, top<span class="op">=</span>ymax, bottom<span class="op">=</span>ymin, right<span class="op">=</span>xmax)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>geobox_ <span class="op">=</span> GeoBox_.from_bbox(bbox<span class="op">=</span>bbox, crs<span class="op">=</span><span class="dv">25832</span>, resolution<span class="op">=</span>lower_res)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>geobox_2 <span class="op">=</span> GeoBox(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span>geobox_.width, height<span class="op">=</span>geobox_.height, affine<span class="op">=</span>geobox_.affine, crs<span class="op">=</span><span class="st">"epsg:25832"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>geobox_2 <span class="op">=</span> GeoBox(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span>geobox_.width, height<span class="op">=</span>geobox_.height, affine<span class="op">=</span>geobox_.affine, crs<span class="op">=</span><span class="st">"epsg:25832"</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> geobox <span class="op">==</span> geobox_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="perform-computation-on-dataset---this-often-leads-to-some-part-of-the-spatial-ref-getting-lost" class="level2">
-<h2 class="anchored" data-anchor-id="perform-computation-on-dataset---this-often-leads-to-some-part-of-the-spatial-ref-getting-lost">Perform computation on dataset - this often leads to some part of the spatial ref getting lost…</h2>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># snow cover as 0 and 1</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>snow_cover <span class="op">=</span> webcam_to_01(ds_webcam.snow_cover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="setting-crs-for-spatial_ref" class="level2">
-<h2 class="anchored" data-anchor-id="setting-crs-for-spatial_ref">Setting crs for spatial_ref</h2>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> snow_cover.odc.geobox.crs <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Dataset's missing the crs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Dataset's missing the crs</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this makes .spatial_ref and .geobox available (actually .geobox is added by datacube)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (not sufficient anymore)</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># snow_cover.rio.write_crs("epsg:25832", inplace=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (not sufficient anymore)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># snow_cover["spatial_ref"] = ds_webcam.spatial_ref</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>snow_cover <span class="op">=</span> snow_cover.odc.assign_crs(<span class="dv">25832</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> snow_cover.odc.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="perform-actual-resampling" class="level2">
-<h2 class="anchored" data-anchor-id="perform-actual-resampling">Perform actual resampling</h2>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled <span class="op">=</span> xr_reproject(snow_cover, geobox, resampling<span class="op">=</span>Resampling.mode)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>snow_cover_downsampled.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;matplotlib.collections.QuadMesh at 0x7166d43f1010&gt;</code></pre>
+<pre><code>&lt;matplotlib.collections.QuadMesh at 0x73dbcc5e86e0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="04_resampling_xr_reproject_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+<p><img src="04_resampling_xr_reproject_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 
