@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-04-24">
+
+<title>stac-asset</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../code-snippets.html">
+ <span class="menu-text">Code snippets</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">stac-asset</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Xarray</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/00_rf_predict_map_blocks.html" class="sidebar-item-text sidebar-link">ds.map_blocks(…)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/01_rf_predict_apply_ufunc.html" class="sidebar-item-text sidebar-link">xr.apply_ufunc(…)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/02_resample_custom_func.html" class="sidebar-item-text sidebar-link">Temporal resampling/aggregation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/03_resampling_rioxarray.html" class="sidebar-item-text sidebar-link">Resampling rioxarray</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/xarray/04_resampling_xr_reproject.html" class="sidebar-item-text sidebar-link">Dask-backed (lazy) resampling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Data download</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/data-download/00_download_s2_stac_asset.html" class="sidebar-item-text sidebar-link active">stac-asset</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/data-download/01_download_s2_odc-stac.html" class="sidebar-item-text sidebar-link">stac-asset</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Dask</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/dask/00_local_cluster.html" class="sidebar-item-text sidebar-link">Local cluster</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sqlalchemy</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/sqlalchemy/00_relations.html" class="sidebar-item-text sidebar-link">Relations</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/sqlalchemy/01_views.html" class="sidebar-item-text sidebar-link">View with model</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Joblib</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/joblib/00_parallel_everything.html" class="sidebar-item-text sidebar-link">Multithreading and -processing with joblib</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Requests</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code-snippets/requests/00_get_request.html" class="sidebar-item-text sidebar-link">requests module</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">stac-asset</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data-download</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="download-sentinel-2-via-command-line-using-stac-asset" class="level2">
+<h2 class="anchored" data-anchor-id="download-sentinel-2-via-command-line-using-stac-asset">Download Sentinel-2 via command line using stac-asset</h2>
+<ul>
+<li>requires installation of the <a href="https://github.com/stac-utils/stac-asset">stac-asset library</a><br>
+</li>
+<li>quickly download stac items via python interface or command line</li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac_client <span class="im">import</span> Client</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> planetary_computer</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bounding_box <span class="im">import</span> lon_min, lat_min, lon_max, lat_max</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> Path(<span class="st">"./"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>out_dir <span class="op">=</span> data_dir <span class="op">/</span> <span class="st">"s2_data_stac-asset"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>out_dir.mkdir()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="query-some-items" class="level2">
+<h2 class="anchored" data-anchor-id="query-some-items">Query some items</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> Client.<span class="bu">open</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://planetarycomputer.microsoft.com/api/stac/v1"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    modifier<span class="op">=</span>planetary_computer.sign_inplace,  <span class="co"># not strictly necessary for finding the items!</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> catalog.search(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    bbox<span class="op">=</span>[lon_min, lat_min, lon_max, lat_max],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    datetime<span class="op">=</span><span class="st">"2024-07-01/2024-07-30"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span>{</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"eo:cloud_cover"</span>: {<span class="st">"lt"</span>: <span class="dv">20</span>},</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> <span class="bu">list</span>(query.items())</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found: </span><span class="sc">{</span><span class="bu">len</span>(items)<span class="sc">:d}</span><span class="ss"> datasets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found: 4 datasets</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>link_to_item <span class="op">=</span> items[<span class="dv">0</span>].links[<span class="dv">3</span>].href</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(link_to_item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20240729T102021_R065_T32TPS_20240729T194952</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resides in dedicated environment to avoid dependency conflicts</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stac_asset_path <span class="op">=</span> <span class="st">"/home/&lt;user&gt;/miniconda3/envs/stac/bin/stac-asset"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cmd <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>stac_asset_path<span class="sc">}</span><span class="ss"> download </span><span class="sc">{</span>link_to_item<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>out_dir<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>os.system(cmd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>22/23: 100%|█████████▉| 1.74G/1.74G [00:50&lt;00:00, 12.6MB/s, 0 errors]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{"type": "Feature", "stac_version": "1.0.0", "stac_extensions": ["https://stac-extensions.github.io/eo/v1.0.0/schema.json", "https://stac-extensions.github.io/sat/v1.0.0/schema.json", "https://stac-extensions.github.io/projection/v1.0.0/schema.json"], "id": "S2A_MSIL2A_20240729T102021_R065_T32TPS_20240729T194952", "geometry": {"type": "Polygon", "coordinates": [[[11.7520729, 46.8502664], [11.6924991, 46.7092583], [11.6277754, 46.564301], [11.5660321, 46.4186793], [11.5041944, 46.2732403], [11.4406416, 46.1284109], [11.3787445, 45.983333], [11.3613307, 45.9395307], [10.2904841, 45.9582645], [10.3140353, 46.9461683], [11.7555849, 46.9205364], [11.7520729, 46.8502664]]]}, "bbox": [10.2904841, 45.9395307, 11.7555849, 46.9461683], "properties": {"datetime": "2024-07-29T10:20:21.025000Z", "platform": "Sentinel-2A", "proj:epsg": 32632, "instruments": ["msi"], "s2:mgrs_tile": "32TPS", "constellation": "Sentinel 2", "s2:granule_id": "S2A_OPER_MSI_L2A_TL_2APS_20240729T194952_A047538_T32TPS_N05.11", "eo:cloud_cover": 16.663046, "s2:datatake_id": "GS2A_20240729T102021_047538_N05.11", "s2:product_uri": "S2A_MSIL2A_20240729T102021_N0511_R065_T32TPS_20240729T194952.SAFE", "s2:datastrip_id": "S2A_OPER_MSI_L2A_DS_2APS_20240729T194952_S20240729T102559_N05.11", "s2:product_type": "S2MSI2A", "sat:orbit_state": "descending", "s2:datatake_type": "INS-NOBS", "s2:generation_time": "2024-07-29T19:49:52.000000Z", "sat:relative_orbit": 65, "s2:water_percentage": 0.341176, "s2:mean_solar_zenith": 30.0395059052058, "s2:mean_solar_azimuth": 153.55374565552, "s2:processing_baseline": "05.11", "s2:snow_ice_percentage": 1.480092, "s2:vegetation_percentage": 63.926095, "s2:thin_cirrus_percentage": 0.036718, "s2:cloud_shadow_percentage": 1.713186, "s2:nodata_pixel_percentage": 11.29414, "s2:unclassified_percentage": 0.794875, "s2:not_vegetated_percentage": 12.102448, "s2:degraded_msi_data_percentage": 0.0256, "s2:high_proba_clouds_percentage": 9.40951, "s2:reflectance_conversion_factor": 0.969413241562976, "s2:medium_proba_clouds_percentage": 7.216818, "s2:saturated_defective_pixel_percentage": 0.0}, "links": [{"rel": "collection", "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a", "type": "application/json"}, {"rel": "parent", "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a", "type": "application/json"}, {"rel": "root", "href": "https://planetarycomputer.microsoft.com/api/stac/v1/", "type": "application/json"}, {"rel": "license", "href": "https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice"}, {"rel": "preview", "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/map?collection=sentinel-2-l2a&amp;item=S2A_MSIL2A_20240729T102021_R065_T32TPS_20240729T194952", "type": "text/html", "title": "Map of item"}, {"rel": "derived_from", "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20240729T102021_R065_T32TPS_20240729T194952"}], "assets": {"AOT": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_AOT_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Aerosol optical thickness (AOT)", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "roles": ["data"]}, "B01": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B01_60m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 1 - Coastal aerosol - 60m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [1830, 1830], "proj:transform": [60.0, 0.0, 600000.0, 0.0, -60.0, 5200020.0], "gsd": 60.0, "eo:bands": [{"name": "B01", "common_name": "coastal", "description": "Band 1 - Coastal aerosol", "center_wavelength": 0.443, "full_width_half_max": 0.027}], "roles": ["data"]}, "B02": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B02_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 2 - Blue - 10m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "eo:bands": [{"name": "B02", "common_name": "blue", "description": "Band 2 - Blue", "center_wavelength": 0.49, "full_width_half_max": 0.098}], "roles": ["data"]}, "B03": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B03_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 3 - Green - 10m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "eo:bands": [{"name": "B03", "common_name": "green", "description": "Band 3 - Green", "center_wavelength": 0.56, "full_width_half_max": 0.045}], "roles": ["data"]}, "B04": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B04_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 4 - Red - 10m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "eo:bands": [{"name": "B04", "common_name": "red", "description": "Band 4 - Red", "center_wavelength": 0.665, "full_width_half_max": 0.038}], "roles": ["data"]}, "B05": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B05_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 5 - Vegetation red edge 1 - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B05", "common_name": "rededge", "description": "Band 5 - Vegetation red edge 1", "center_wavelength": 0.704, "full_width_half_max": 0.019}], "roles": ["data"]}, "B06": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B06_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 6 - Vegetation red edge 2 - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B06", "common_name": "rededge", "description": "Band 6 - Vegetation red edge 2", "center_wavelength": 0.74, "full_width_half_max": 0.018}], "roles": ["data"]}, "B07": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B07_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 7 - Vegetation red edge 3 - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B07", "common_name": "rededge", "description": "Band 7 - Vegetation red edge 3", "center_wavelength": 0.783, "full_width_half_max": 0.028}], "roles": ["data"]}, "B08": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B08_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 8 - NIR - 10m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "eo:bands": [{"name": "B08", "common_name": "nir", "description": "Band 8 - NIR", "center_wavelength": 0.842, "full_width_half_max": 0.145}], "roles": ["data"]}, "B09": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B09_60m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 9 - Water vapor - 60m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [1830, 1830], "proj:transform": [60.0, 0.0, 600000.0, 0.0, -60.0, 5200020.0], "gsd": 60.0, "eo:bands": [{"name": "B09", "description": "Band 9 - Water vapor", "center_wavelength": 0.945, "full_width_half_max": 0.026}], "roles": ["data"]}, "B11": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B11_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 11 - SWIR (1.6) - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B11", "common_name": "swir16", "description": "Band 11 - SWIR (1.6)", "center_wavelength": 1.61, "full_width_half_max": 0.143}], "roles": ["data"]}, "B12": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B12_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 12 - SWIR (2.2) - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B12", "common_name": "swir22", "description": "Band 12 - SWIR (2.2)", "center_wavelength": 2.19, "full_width_half_max": 0.242}], "roles": ["data"]}, "B8A": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_B8A_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Band 8A - Vegetation red edge 4 - 20m", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "eo:bands": [{"name": "B8A", "common_name": "rededge", "description": "Band 8A - Vegetation red edge 4", "center_wavelength": 0.865, "full_width_half_max": 0.033}], "roles": ["data"]}, "SCL": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_SCL_20m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Scene classfication map (SCL)", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [5490, 5490], "proj:transform": [20.0, 0.0, 600000.0, 0.0, -20.0, 5200020.0], "gsd": 20.0, "roles": ["data"]}, "WVP": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_WVP_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Water vapour (WVP)", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "roles": ["data"]}, "visual": {"href": "s2_data_stac-asset/T32TPS_20240729T102021_TCI_10m.tif", "type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "True color image", "proj:bbox": [600000.0, 5090220.0, 709800.0, 5200020.0], "proj:shape": [10980, 10980], "proj:transform": [10.0, 0.0, 600000.0, 0.0, -10.0, 5200020.0], "gsd": 10.0, "eo:bands": [{"name": "B04", "common_name": "red", "description": "Band 4 - Red", "center_wavelength": 0.665, "full_width_half_max": 0.038}, {"name": "B03", "common_name": "green", "description": "Band 3 - Green", "center_wavelength": 0.56, "full_width_half_max": 0.045}, {"name": "B02", "common_name": "blue", "description": "Band 2 - Blue", "center_wavelength": 0.49, "full_width_half_max": 0.098}], "roles": ["data"]}, "safe-manifest": {"href": "s2_data_stac-asset/manifest.safe", "type": "application/xml", "title": "SAFE manifest", "roles": ["metadata"]}, "granule-metadata": {"href": "s2_data_stac-asset/MTD_TL.xml", "type": "application/xml", "title": "Granule metadata", "roles": ["metadata"]}, "inspire-metadata": {"href": "s2_data_stac-asset/INSPIRE.xml", "type": "application/xml", "title": "INSPIRE metadata", "roles": ["metadata"]}, "product-metadata": {"href": "s2_data_stac-asset/MTD_MSIL2A.xml", "type": "application/xml", "title": "Product metadata", "roles": ["metadata"]}, "datastrip-metadata": {"href": "s2_data_stac-asset/MTD_DS.xml", "type": "application/xml", "title": "Datastrip metadata", "roles": ["metadata"]}, "tilejson": {"href": "s2_data_stac-asset/tilejson.json", "type": "application/json", "title": "TileJSON with default rendering", "roles": ["tiles"]}, "rendered_preview": {"href": "s2_data_stac-asset/preview.png", "type": "image/png", "title": "Rendered preview", "rel": "preview", "roles": ["overview"]}}, "collection": "sentinel-2-l2a"}</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>                                                                     
+
+23/23: 100%|██████████| 1.74G/1.74G [00:51&lt;00:00, 36.7MB/s, 0 errors]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>0</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
