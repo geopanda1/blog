@@ -1,0 +1,76 @@
+---
+title: "util.py"
+categories: [utilities]
+date: 2025-04-27
+---
+
+Just a helper to generate some data for training and inference.
+
+```python
+import pandas as pd
+import dask.array as da
+import xarray as xr
+
+
+def generate_X_y(
+    samples=1000, features=10, classes=2
+) -> tuple[da.core.Array, da.core.Array]:
+    """Generate random features and labels
+
+    Parameters
+    ----------
+    samples : int, optional
+        Number of samples, by default 1000
+    features : int, optional
+        Number of features, by default 10
+    classes : int, optional
+        Number of classes, by default 2
+
+    Returns
+    -------
+    tuple[da.core.Array, da.core.Array]
+        X and y, with shape (samples, features) and (samples,)
+    """
+    X = da.random.random((samples, features))
+    y = da.random.randint(0, classes, samples)
+
+    return X, y
+
+
+def generate_3d_dataset(lat=40, lon=60, time=12) -> xr.Dataset:
+    """Generate a 3-dimensional xarray.Dataset with lat, lon and time dimensions of
+    the specified size. lat/lon chunks will be int(dim.size/10), time will be a single chunk (-1)
+
+    Parameters
+    ----------
+    lat : int, optional
+        Size of lat dimension, by default 40
+    lon : int, optional
+        Size of lon dimension, by default 60
+    time : int, optional
+        Size of time dimension, by default 12
+
+    Returns
+    -------
+    xr.Dataset
+        Dask-backed dataset.
+    """
+    lat_chunk, lon_chunk = int(lat / 10), int(lon / 10)
+    lat_coords = da.arange(lat)
+    lon_coords = da.arange(lon)
+    start = pd.Timestamp(year=2021, month=1, day=1)
+    time_coords = pd.date_range(start, start + pd.Timedelta(days=time - 1), freq="1D")
+    data = da.random.random(
+        (lat_coords.size, lon_coords.size, time_coords.size),
+        chunks=(lat_chunk, lon_chunk, -1),
+    )
+
+    ds = xr.DataArray(
+        data,
+        coords=[lat_coords, lon_coords, time_coords],
+        dims=["lat", "lon", "time"],
+        name="test",
+    ).to_dataset()
+
+    return ds
+```
