@@ -24,6 +24,7 @@ website:
       contents: 
         - section: Xarray
           contents:
+            - code-snippets/xarray/util.qmd
             - code-snippets/xarray/00_rf_predict_map_blocks.ipynb
             - code-snippets/xarray/01_rf_predict_apply_ufunc.ipynb
             - code-snippets/xarray/02_resample_custom_func.ipynb
