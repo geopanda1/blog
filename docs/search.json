@@ -18,7 +18,7 @@
     "href": "code-snippets.html",
     "title": "Code snippets",
     "section": "",
-    "text": "Various pieces of code I regularily use."
+    "text": "Various pieces of code I more or less regularily use, as a reference for myself."
   },
   {
     "objectID": "code-snippets/dask/00_local-cluster.html",

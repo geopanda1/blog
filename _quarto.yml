@@ -20,8 +20,9 @@ website:
     - title: "Tutorials"
       style: "docked"
       background: light
+      collapse-level: 1
       sort: false
-      contents: 
+      contents:
         - section: Xarray
           contents:
             - code-snippets/xarray/util.qmd
@@ -31,29 +32,29 @@ website:
             - code-snippets/xarray/03_resampling_xr_reproject.ipynb
             - code-snippets/xarray/04_geotiff-to-xarray.ipynb
         - section: Data download
-          contents: 
+          contents:
             - code-snippets/data-download/00_download_s2_stac_asset.ipynb
             - code-snippets/data-download/01_download_s2_odc-stac.ipynb
             - code-snippets/data-download/02_download_s2_stackstac.ipynb
         - section: Dask
-          contents: 
+          contents:
             - code-snippets/dask/00_local_cluster.ipynb
         - section: Sqlalchemy
-          contents: 
+          contents:
             - code-snippets/sqlalchemy/00_relations.ipynb
             - code-snippets/sqlalchemy/01_views.ipynb
         - section: Joblib
-          contents: 
+          contents:
             - code-snippets/joblib/00_parallel_everything.ipynb
         - section: Requests
-          contents: 
+          contents:
             - code-snippets/requests/00_get_request.ipynb
-        
+
 
 format:
   html:
-    theme: simplex
-    css: styles.css
+    theme: [simplex, styles.scss]
+
 
 
 

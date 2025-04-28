@@ -1,9 +1,9 @@
 ---
 title: "Code snippets"
-image: profile.jpg
+# image: profile.jpg
 about:
   template: jolla
 ---
 
 
-Various pieces of code I regularily use.
+Various pieces of code I more or less regularily use, as a reference for myself.
