@@ -54,6 +54,7 @@ website:
 format:
   html:
     theme: [simplex, styles.scss]
+    linkcolor: grey
 
 
 

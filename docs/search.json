@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "LWD Tirol Meteo Download Package\n\n\n\n\n\n\n\npython-package\n\n\ndata-download\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2025\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nGeosphere Download Package\n\n\n\n\n\n\n\npython-package\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "High-resolution elevation data for Tyrol\n\n\n\n\n\n\n\npython-package\n\n\ndata-download\n\n\n\n\n\n\n\n\n\n\n\nApr 28, 2025\n\n\n\n\n\n\n  \n\n\n\n\nLWD Tirol Meteo Download Package\n\n\n\n\n\n\n\npython-package\n\n\ndata-download\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2025\n\n\n\n\n\n\n  \n\n\n\n\nGeosphere Data Download\n\n\n\n\n\n\n\npython-package\n\n\ndata-download\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -65,9 +65,9 @@
   {
     "objectID": "posts/geosphere-download/index.html",
     "href": "posts/geosphere-download/index.html",
-    "title": "LWD Tirol Meteo Download Package",
+    "title": "Geosphere Data Download",
     "section": "",
-    "text": "This package is meant to facilitate download meteorological data from the Geosphere (formerly ZAMG) Austria data hub.\nPackage link\n\nfrom pathlib import Path\nimport os\n\n\nprint(os.system(\"python --version\"))\n\nPython 3.13.1\n0"
+    "text": "Link to Gitlab Repo\nThis package is meant to facilitate the download of meteorological data from the Geosphere (formerly ZAMG) Austria data hub. The data is made freely available under the CC BY 4.0 license.\n\n\n\n\n\n\nNote\n\n\n\nThe package relies on asyncio and aoihttp for querying the data and currently can only run successfully in regular python scripts, i.e., it does unfortunately not work when used in jupyter notebooks.\n\n\nHere is an example on how to download data for the station in Obergurgl. Batch download funtionality is described here):\n\nfrom datetime import datetime\nfrom loguru import logger\n\nfrom geospheredl import GeosphereClient\n\nlogger.enable(\"geospheredl\")\n\n# pick a dataset\nds = \"/station/historical/klima-v2-1h\"\n\nvariables = [\"tl\", \"cglo\", \"ff\", \"rr\", \"rf\", \"sh\"]\nparams = {\n    \"parameters\": variables,\n    \"start_date\": datetime(1995, 1, 1),\n    \"end_date\": datetime(2025, 1, 1),\n    \"station_id\": 66,\n}\n\n\ngclient = GeosphereClient()\n\n# to explore available stations, pick and set a specific dataset\n# from the list of datasets\ngclient.set_dataset(\"/station/historical/klima-v2-1h\")\n\n\ndf = gclient.download_station(**params)\ndf.to_csv(\"obergurgl.csv\")\n\nHere is a visualization of the annual temperature distribution based on the downloaded data. The visualization is a slightly adapted version of the seaborn ridgeplot example.\n\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv(\"obergurgl.csv\")\ndf[\"timestamp\"] = pd.to_datetime(df[\"timestamp\"])\ndf = df[[\"timestamp\", \"tl\"]]\ndf = df.dropna(axis=\"rows\")\ndf[\"year\"] = df[\"timestamp\"].dt.year\ndf[\"doy\"] = df[\"timestamp\"].dt.day_of_year\ndf = df.set_index(\"timestamp\")\ndf = df.loc[df.index < \"2025-01-01\"]\n\nvariable = \"tl\"\n\nsns.set_theme(style=\"white\", rc={\"axes.facecolor\": (0, 0, 0, 0)})\n\npal = sns.cubehelix_palette(len(df[\"year\"].unique()), rot=-0.25, light=0.7)\ng = sns.FacetGrid(df, row=\"year\", hue=\"year\", aspect=14, height=0.5, palette=pal)\n\nbw = 0.5\n\ng.map(\n    sns.kdeplot, variable, bw_adjust=bw, clip_on=True, fill=True, alpha=1, linewidth=1.5\n)\ng.map(sns.kdeplot, variable, clip_on=True, color=\"w\", lw=2, bw_adjust=bw)\ng.refline(y=0, linewidth=2, linestyle=\"-\", color=None, clip_on=False)\n\n\ndef label_ax(x, color, label):\n    ax = plt.gca()\n    ax.text(\n        0,\n        0.2,\n        label,\n        fontweight=\"bold\",\n        color=color,\n        ha=\"left\",\n        va=\"center\",\n        transform=ax.transAxes,\n    )\n\n\ng.map(label_ax, \"tl\")\n\n\ndef set_xlim(color, label, xmin, xmax):\n    ax = plt.gca()\n    ax.set_xlim((xmin, xmax))\n\n\ng.map(set_xlim, xmin=-20, xmax=25)\n\ng.figure.subplots_adjust(hspace=-0.25)\n\ng.set_titles(\"\")\ng.set(yticks=[], ylabel=\"\")\ng.despine(bottom=True, left=True)\ng.set_xlabels(\"Air temperature [°C]\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nCaveats for downloading a lot of data\n\n\n\nThe geosphere data hub has a limit for the size (i.e., data points) of individual requests and a rate limit for the number of requests. This means it is impossible to download long time series for many different variables in a single request if it exceeds the size limit. Therefore geospheredl tries to detect such cases and splits them temporally in a way such that individual requests do not exceed the size limit. Afterwards, the individual pieces of a timeseries are merged again. If geospheredl hits the rate limit for requests, it sleeps for the time until the rate limit is reset, which is indicated in the response from the data hub. Generally speaking, this means that downloading a lot of data via geospheredl can potentially take a lot of time."
   },
   {
     "objectID": "posts/new-post/other.html",
@@ -411,5 +411,19 @@
     "title": "Geotiff-to-xarray",
     "section": "Write to disk as zarr",
     "text": "Write to disk as zarr\n\nds.to_zarr(\"data.zarr\")"
+  },
+  {
+    "objectID": "posts/lwd-tirol-download/index.html",
+    "href": "posts/lwd-tirol-download/index.html",
+    "title": "LWD Tirol Meteo Download Package",
+    "section": "",
+    "text": "This package is meant to facilitate download meteorological data from the Avalanche Warning Service of Tyrol.\n Link to Gitlab Repo\n\nfrom pathlib import Path\nimport os\n\n\nprint(os.system(\"python --version\"))\n\nPython 3.13.1\n0"
+  },
+  {
+    "objectID": "posts/dem-tirol/index.html",
+    "href": "posts/dem-tirol/index.html",
+    "title": "High-resolution elevation data for Tyrol",
+    "section": "",
+    "text": "Package to download elevation data for the State of Tyrol (Austria) with a spatial resolution of 50 cm. The dataset and the lower resolution products all are available for free under the CC BY 4.0 license here. There is also a WCS for the 50 cm dataset, which, depending on the goal, might be easier to use than this package.\n Link to Gitlab Repo\n\nfrom pathlib import Path\nimport os\n\n\nprint(os.system(\"python --version\"))\n\nPython 3.13.1\n0"
   }
 ]

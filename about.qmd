@@ -10,11 +10,11 @@ about:
     # - icon: linkedin
     #   text: LinkedIn
     #   href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
-    - icon: gitlab
-      text: Gitlab
+    # - icon: github
+    #   text: Github
+    #   href: https://github.com
+    - text: "{{< bi gitlab >}} Gitlab"
+      href: https://scholar.google.fr/citations?user=xxx
 
 sidebar: False
 ---
