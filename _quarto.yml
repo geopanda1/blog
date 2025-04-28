@@ -29,6 +29,7 @@ website:
             - code-snippets/xarray/01_rf_predict_apply_ufunc.ipynb
             - code-snippets/xarray/02_resample_custom_func.ipynb
             - code-snippets/xarray/03_resampling_xr_reproject.ipynb
+            - code-snippets/xarray/04_geotiff-to-xarray.ipynb
         - section: Data download
           contents: 
             - code-snippets/data-download/00_download_s2_stac_asset.ipynb

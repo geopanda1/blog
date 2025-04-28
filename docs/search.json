@@ -376,5 +376,40 @@
     "title": "Temporal resampling/aggregation",
     "section": "Resample to monthly interval",
     "text": "Resample to monthly interval\n\nda_monthly_mean = ds.test.resample(time=\"1MS\").mean()\n\n\ndef custom_agg_func(da: xr.DataArray) -> xr.DataArray:\n    # dummy operation - could by anything\n    return da.sum(dim=\"time\") / da.count(dim=\"time\")\n\n\nda_monthly_mean_custom = ds.test.resample(time=\"1MS\").apply(custom_agg_func)\n\n\nassert (da_monthly_mean_custom == da_monthly_mean).all()"
+  },
+  {
+    "objectID": "code-snippets/xarray/04_geotiff-to-xarray.html",
+    "href": "code-snippets/xarray/04_geotiff-to-xarray.html",
+    "title": "Geotiff-to-xarray",
+    "section": "",
+    "text": "from pathlib import Path\nimport datetime\n\nimport xarray as xr\nimport rioxarray"
+  },
+  {
+    "objectID": "code-snippets/xarray/04_geotiff-to-xarray.html#get-list-of-geotiffs",
+    "href": "code-snippets/xarray/04_geotiff-to-xarray.html#get-list-of-geotiffs",
+    "title": "Geotiff-to-xarray",
+    "section": "Get list of geotiffs",
+    "text": "Get list of geotiffs\n\ngeotiffs = list(geotiff_dir.glob(\"*.tif\"))\ngeotiffs.sort(key=get_date)"
+  },
+  {
+    "objectID": "code-snippets/xarray/04_geotiff-to-xarray.html#perform-the-actual-read",
+    "href": "code-snippets/xarray/04_geotiff-to-xarray.html#perform-the-actual-read",
+    "title": "Geotiff-to-xarray",
+    "section": "Perform the actual read",
+    "text": "Perform the actual read\nImportant: The geotiffs themselves have to be tiled to enable chunked loading/processing (see this github issue), just setting chunks={...} in .open_rasterio is not sufficient.\n\nda_s = [\n    rioxarray.open_rasterio(\n        raster,\n        default_name=\"snow_cover\",\n        chunks={\"band\": 1, \"x\": 1024, \"y\": 1024},\n    ).squeeze(dim=\"band\", drop=True)\n    for raster in geotiffs\n]\n\n\ntime_var = xr.Variable(\"time\", [get_date(img) for img in geotiffs])"
+  },
+  {
+    "objectID": "code-snippets/xarray/04_geotiff-to-xarray.html#concatenate-aling-time-dimension",
+    "href": "code-snippets/xarray/04_geotiff-to-xarray.html#concatenate-aling-time-dimension",
+    "title": "Geotiff-to-xarray",
+    "section": "Concatenate aling time dimension",
+    "text": "Concatenate aling time dimension\n\nds = xr.concat(da_s, dim=time_var).to_dataset()\n\n\n# write source directory into attributes to preserve the origin\nds.attrs[\"base_dir\"] = geotiff_dir.as_posix()"
+  },
+  {
+    "objectID": "code-snippets/xarray/04_geotiff-to-xarray.html#write-to-disk-as-zarr",
+    "href": "code-snippets/xarray/04_geotiff-to-xarray.html#write-to-disk-as-zarr",
+    "title": "Geotiff-to-xarray",
+    "section": "Write to disk as zarr",
+    "text": "Write to disk as zarr\n\nds.to_zarr(\"data.zarr\")"
   }
 ]
