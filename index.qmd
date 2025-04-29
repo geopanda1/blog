@@ -2,10 +2,9 @@
 title: ""
 listing:
   contents: posts
-  fields: [image, date, title]
+  fields: [image, date, title, description, categories]
   sort: "date desc"
   type: default
-  categories: true
   sort-ui: false
   filter-ui: false
 page-layout: full
