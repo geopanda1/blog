@@ -1,0 +1,97 @@
+---
+title: Function dispatch 
+date: 2025-04-29
+categories: [python]
+# image: "image.jpg"
+description: "3 ways to dispatch a function based on a string"
+---
+
+## Ways to dispatch (select) a function based on a string
+Sometimes I want to select a function from a set of functions based on a string. The examples here are compiled from [this](https://softwareengineering.stackexchange.com/questions/351389/dynamic-dispatch-from-a-string-python), [this](https://stackoverflow.com/questions/36270322/python-dispatch-method-with-string-input) and [this](https://stackoverflow.com/questions/1176136/convert-string-to-python-class-object) stackoverflow post.
+
+### Option 1: dictionary
+Probably the easiest, most straightforward method.
+```python
+def func1():
+    print("Running func1")
+
+def func2():
+    print("Running func2")
+
+def func3():
+    print("Running func3")
+
+funcs = {
+    "func1": func1,
+    "func2": func2,
+    "func3": func3,
+}
+
+def top_level_func(function="func1"):
+    f = funcs[function]
+    f()
+```
+
+### Option 2: `getattr` from module
+Nice and clean due to import from external module (although that could easily be achieved for option 1, too)
+
+`mod.py`
+```python
+def func1():
+    print("Running func1")
+
+def func2():
+    print("Running func2")
+
+def func3():
+    print("Running func3")
+```
+
+```python
+import mod
+
+def top_level_func(function="func1"):
+    f = getattr(mod, function)
+    f()
+```
+
+### Option 3: using a decorator
+Adapted from [this post](https://stackoverflow.com/a/40408263) on stackoverflow.
+```python
+class FunctionContainer:
+    def __init__(self):
+        self.funcs = {}
+
+    def _add(self, f):
+        self.funcs[f.__name__] = f
+
+    def add(self, f):
+        self._add(f)
+
+        return f
+
+    def __getitem__(self, function_name):
+        return self.funcs[function_name]
+
+
+container = FunctionContainer()
+
+@container.add
+def func1():
+    print("Running func1")
+
+@container.add
+def func2():
+    print("Running func2")
+
+@container.add
+def func3():
+    print("Running func3")
+
+def top_level_func(function="func1"):
+    f = container[function]
+    f()
+```
+
+### Other options
+People also suggest to use `eval` or `globals()` for this case. Both are not ideal, due to the executation of arbitrary code or access to global variables in some way, which likely can be avoided in most cases.
