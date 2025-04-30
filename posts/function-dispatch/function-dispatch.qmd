@@ -1,5 +1,5 @@
 ---
-title: Function dispatch 
+title: Function dispatch
 date: 2025-04-29
 categories: [python]
 # image: "image.jpg"
@@ -94,4 +94,4 @@ def top_level_func(function="func1"):
 ```
 
 ### Other options
-People also suggest to use `eval` or `globals()` for this case. Both are not ideal, due to the executation of arbitrary code or access to global variables in some way, which likely can be avoided in most cases.
+People also suggest to use `eval` or `globals()` for this case. Both are not ideal, due to the execution of arbitrary code or access to global variables in some way, which likely can be avoided in most cases.
