@@ -1,0 +1,25 @@
+---
+title: "apt"
+# categories: [linux]
+# date: 2025-05-01
+---
+
+Differences between the older `apt-get` and `apt` are detailed in this [amazon article](https://aws.amazon.com/compare/the-difference-between-apt-and-apt-get/)
+
+```bash
+# update/upgrade
+apt update
+apt upgrade
+
+# search package 
+apt search <search-string>
+
+# install
+apt install <package>
+
+# add ppa
+add-apt-repository <ppa:repo>
+
+# remove ppa - sometimes old ppas don't have release candidates
+add-apt-repository --remove <ppa:repo>
+```
