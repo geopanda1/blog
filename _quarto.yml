@@ -31,6 +31,9 @@ website:
             - code-snippets/xarray/02_resample_custom_func.ipynb
             - code-snippets/xarray/03_resampling_xr_reproject.ipynb
             - code-snippets/xarray/04_geotiff-to-xarray.ipynb
+        - section: Pandas
+          contents: 
+            - code-snippets/pandas/00_groupyby-agg.qmd
         - section: Linux | Misc
           contents:
             - code-snippets/linux/apt.qmd

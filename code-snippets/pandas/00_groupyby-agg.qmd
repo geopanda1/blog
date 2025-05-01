@@ -1,0 +1,28 @@
+---
+title: "groupby(...).agg(...)"
+# categories: [pandas]
+# date: 2025-05-01
+---
+How to use built-in or custom functions in groupby operations and set the name of the resulting column.
+
+```{python}
+import pandas as pd
+import numpy as np
+
+# use iris dataset from seaborn package
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+)
+
+df_grouped = (
+    df.groupby("species")
+    .agg(
+        pl_min=("petal_length", "min"),
+        pl_max=("petal_length", lambda x: max(x)),
+        pl_perc95=("petal_length", lambda x: np.percentile(x, 95)),
+    )
+    .reset_index()
+)
+
+df_grouped
+```
