@@ -7,6 +7,6 @@ pic = skimage.io.imread(path)
 
 ratio = 1200 / 852
 
-cropped = pic[: 426 * 2, : 600 * 2, :]
+cropped = pic[: 426 * 4, : 600 * 4, :]
 
 skimage.io.imsave("sd-crop.png", cropped)
