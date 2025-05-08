@@ -26,3 +26,27 @@ df_grouped = (
 
 df_grouped
 ```
+
+
+### Aggregate all rows
+```{python}
+import pandas as pd
+import numpy as np
+
+# use iris dataset from seaborn package
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+)
+
+df_grouped = (
+    df.groupby(lambda x: True)  # from https://stackoverflow.com/a/46583472
+    .agg(
+        pl_min=("petal_length", "min"),
+        pl_max=("petal_length", lambda x: max(x)),
+        pl_perc95=("petal_length", lambda x: np.percentile(x, 95)),
+    )
+    .reset_index()
+)
+
+df_grouped
+```
