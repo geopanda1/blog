@@ -1,0 +1,18 @@
+---
+title: VSCode tools to write sane python code
+date: 2025-05-14
+categories: [python]
+# image: "image.jpg"
+description: "Useful extensions"
+---
+
+
+## autoDocstring
+
+## Ruff
+
+## Clean code python tips
+
+[see here](https://github.com/zedr/clean-code-python)
+
+## Pylint/Pylance
