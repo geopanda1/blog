@@ -1,6 +1,6 @@
 ---
 title: "Code snippets"
-# image: profile.jpg
+comments: false
 about:
   template: jolla
 ---

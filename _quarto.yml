@@ -62,6 +62,9 @@ format:
   html:
     theme: [simplex, styles.scss]
     linkcolor: grey
+    comments:
+      utterances:
+         repo: geopanda1/blog
 
 
 

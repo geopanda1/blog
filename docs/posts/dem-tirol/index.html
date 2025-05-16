@@ -210,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Package to download elevation data for the State of Tyrol (Austria) with a spatial resolution of 50 cm. The dataset and the lower resolution products all are available for free under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license <a href="https://www.data.gv.at/katalog/dataset/0454f5f3-1d8c-464e-847d-541901eb021a#resources">here</a>. There is also a WCS for the 50 cm dataset, which, depending on the goal, might be easier to use than this package.</p>
+<p>Package to download elevation data for the State of Tyrol (Austria) with a spatial resolution of 50 cm. This dataset and all the lower resolution products all are available for free under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license <a href="https://www.data.gv.at/katalog/dataset/0454f5f3-1d8c-464e-847d-541901eb021a#resources">here</a>. There is also a WCS for the 50 cm dataset, which, depending on the goal, might be easier to use than this package.</p>
 <p><a href="https://git.uibk.ac.at/rslab/tiroldem"><i class="bi-gitlab " style="" role="img" aria-hidden="true"></i> Link to Gitlab Repo</a></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -237,6 +237,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>shape <span class="op">=</span> [p1, p2, p3, p4]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="download-individual-tiles" class="level3">
+<h3 class="anchored" data-anchor-id="download-individual-tiles">Download individual tiles</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tiles_per_region <span class="op">=</span> tdem.get_intersecting_tiles(shape, crs<span class="op">=</span>crs)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -252,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="merging-individual-tiles-after-downloading" class="level3">
 <h3 class="anchored" data-anchor-id="merging-individual-tiles-after-downloading">Merging individual tiles after downloading</h3>
-<p>Various ways exist to merge individual tiles, which is the reason this is not covereg by the package. A simple way is to use <a href="https://gdal.org/en/stable/programs/gdal_merge.html#gdal-merge"><code>gdal_merge.py</code></a> included in the <a href="https://gdal.org/en/stable/programs/index.html">gdal command line utilities</a> (which likely are already available if the gdal package is installed in the current python environment): <code>gdal_merge -o dem_merged.tif -n &lt;no_data_value_in&gt; -a_nodata &lt;no_data_value_out&gt; dgm*.tif</code></p>
+<p>Various ways exist to merge individual tiles, which is the reason this is not covered by the package. A simple way is to use <a href="https://gdal.org/en/stable/programs/gdal_merge.html#gdal-merge"><code>gdal_merge.py</code></a> included in the <a href="https://gdal.org/en/stable/programs/index.html">gdal command line utilities</a> (which likely are already available if the gdal package is installed in the current python environment): <code>gdal_merge -o dem_merged.tif -n &lt;no_data_value_in&gt; -a_nodata &lt;no_data_value_out&gt; dgm*.tif</code></p>
 
 
 </section>
@@ -390,6 +393,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="geopanda1/blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 
