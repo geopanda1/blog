@@ -1,22 +1,15 @@
 ---
 title: "About"
-image: profile.jpg
 about:
   template: jolla
   links:
-    # - icon: twitter
-    #   text: Twitter
-    #   href: https://twitter.com
-    # - icon: linkedin
-    #   text: LinkedIn
-    #   href: https://linkedin.com
-    # - icon: github
-    #   text: Github
-    #   href: https://github.com
+    - icon: github
+      text: Github
+      href: https://github.com/geopanda1
     - text: "{{< bi gitlab >}} Gitlab"
-      href: https://scholar.google.fr/citations?user=xxx
+      href: https://git.uibk.ac.at/users/c716826/contributed
 
 sidebar: False
 ---
 
-About this blog
+This website contains a small collection of code snippets I irregularily use and want to keep online as a reference for myself as well as some posts that link to some of the python packages I have developed at work.

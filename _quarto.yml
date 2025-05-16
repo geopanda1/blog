@@ -7,9 +7,10 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/geopanda1
+      - text: "{{< bi gitlab >}}"
+        href: https://git.uibk.ac.at/users/c716826/contributed
+
     left:
       - text: "Posts"
         href: index.qmd

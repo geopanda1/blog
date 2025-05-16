@@ -1,18 +1,36 @@
 ---
-title: VSCode tools to write sane python code
+title: Some tools to write better python code
 date: 2025-05-14
 categories: [python]
-# image: "image.jpg"
-description: "Useful extensions"
+description: "Small list of VSCode extensions and other things that help to improve code quality with limited effort"
 ---
 
+## Python specific
 
-## autoDocstring
+### Type hints
 
-## Ruff
+For some time now python supports [type hints](https://docs.python.org/3/library/typing.html). These allow to add type annotations to variables and function declarations, much like they are required in many statically typed languages (C, C++, ...). They are called "annotations" or "hints" because they are not enforced (i.e., checked) at runtime, although tools like mypy and pyright can be used to perform type checks.
 
-## Clean code python tips
+Although type hints should not be used to substitute function docstrings, they help a lot to document code and improve readability and could be ultimately used to perform type checking.
 
-[see here](https://github.com/zedr/clean-code-python)
+## Visual Studio Code extensions
 
-## Pylint/Pylance
+### Python extension
+
+Basic extension for writing python code in VS Code. Integrates the python debugger, allows to specify and change the interpreter (i.e., environment) and has support for jupyter notebooks among many other things.
+
+### Automatically format code (black and ruff)
+
+This is probably the easiest and cheapest way to improve readability and help to adhere to some of pythons coding standards (or PEPs). If you work on your own codebase, I think there are few reasons not to (auto-)format your code. Setting this up is straight forward and takes at most a few minutes (if you include the time for reading up on different formatters).
+
+#### Steps
+
+1. From [this list ](https://code.visualstudio.com/docs/python/formatting#_choose-a-formatter), choose and install a code formatter (I previously used [`black`](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter), but [`ruff`](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) offers the same functionality and is a lot faster)
+2. [Configure your default formatter](https://code.visualstudio.com/docs/python/formatting#_set-a-default-formatter).
+3. Set VSCode to automatically [format code when saving a file](https://code.visualstudio.com/docs/python/formatting#_format-your-code)
+
+### [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
+
+Generate [docstrings](https://peps.python.org/pep-0257/) for functions and methods. After placing the cursor below the function or method header, hitting `Ctrl + Shift + 2` will generate a correctly formatted docstring template with the names of arguments where you only need to add a little bit of description. In the settings you can choose between different docstring formats. I personally prefer the `numpy` style.
+
+If you use [type hints](#type-hints), autoDocstring will pick these up from the function header and add them to the docstring template, which is quite convenient.
