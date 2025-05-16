@@ -1,2 +1,4 @@
 /.quarto/
+**/__pycache__
 docs
+.vscode
