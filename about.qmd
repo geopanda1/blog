@@ -13,4 +13,4 @@ about:
 sidebar: False
 ---
 
-This website contains a small collection of code snippets I irregularily use and want to keep online as a reference for myself as well as some posts that link to some of the python packages I have developed at work.
+This website contains a small collection of code snippets I (ir-)regularily use and want to keep online as a reference for myself as well as some posts that link to some of the python packages I have developed in my spare time and at work.

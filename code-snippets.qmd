@@ -3,6 +3,7 @@ title: "Code snippets"
 comments: false
 about:
   template: jolla
+sidebar: true
 ---
 
 

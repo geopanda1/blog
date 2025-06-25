@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 website:
+  bread-crumbs: false
   navbar:
     right:
       - about.qmd
@@ -18,20 +19,21 @@ website:
         href: code-snippets.qmd
 
   sidebar:
-    - title: "Tutorials"
       style: "docked"
       background: light
       collapse-level: 1
       sort: false
       contents:
+        - code-snippets.qmd
         - section: Xarray
-          contents:
+          contents:    
             - code-snippets/xarray/util.qmd
             - code-snippets/xarray/00_rf_predict_map_blocks.ipynb
             - code-snippets/xarray/01_rf_predict_apply_ufunc.ipynb
             - code-snippets/xarray/02_resample_custom_func.ipynb
             - code-snippets/xarray/03_resampling_xr_reproject.ipynb
             - code-snippets/xarray/04_geotiff-to-xarray.ipynb
+            - code-snippets/xarray/05_indexing_assigning.ipynb
         - section: Pandas
           contents: 
             - code-snippets/pandas/00_groupyby-agg.qmd
