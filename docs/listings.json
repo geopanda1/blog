@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/chunking/index.html",
       "/posts/python-tools/index.html",
       "/posts/function-dispatch/index.html",
       "/posts/dem-tirol/index.html",
