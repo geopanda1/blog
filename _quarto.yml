@@ -40,6 +40,7 @@ website:
         - section: Linux | Misc
           contents:
             - code-snippets/linux/apt.qmd
+            - code-snippets/linux/systemd.qmd
         - section: Data download
           contents:
             - code-snippets/data-download/00_download_s2_stac_asset.ipynb
