@@ -1,0 +1,101 @@
+---
+title: "systemd "
+# categories: [linux]
+# date: 2026-01-13
+---
+
+
+How to run tasks on a regular basis (once after booting or at daily or other intervals)
+
+## Structure
+
+To start a systemd unit once after booting or on a regular basis, you need two files: a service unit and a timer unit. The service defines what to start, the timer unit defines when and how often (among many other things...).
+
+
+### Example to run something once after booting
+
+`my-task.service`
+
+```text
+[Unit]
+Description=Start script to do X
+After=network-online.target <some-mount-point>.mount # waits for network to be online and some mount target
+
+[Service]
+WorkingDirectory=<path-to-working-directory
+ExecStart=/home/<user>/miniconda3/envs/<env-name>/bin/python <path-to-python-script> # set absolute paths here just to be sure...
+```
+
+`my-task.timer`
+
+```text
+[Unit]
+Description=Start my-task
+
+[Timer]
+OnBootSec=1min # 
+Unit=my-task.service # specify the service
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Example to run something once a day
+
+`my-task.service`
+
+```text
+Description=Start script to do X
+After=network-online.target <some-mount-point>.mount # waits for network to be online and some mount target
+
+[Service]
+Type=oneshot
+ExecStart=<path-to-some-shell-script>/start.sh
+```
+
+`my-task.timer`
+
+```text
+[Unit]
+Description=Start my-task
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1d # run once every day
+Unit=my-task.service # specify the service
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+### Activate a new service and associated timer
+
+```bash
+# after editing service and timer files
+sudo systemctl daemon-reload
+
+# to activate the timer
+sudo systemctl enable my-task.timer
+
+# to start the service immidiately
+sudo systemctl start my-task.service
+
+# check the status of the service (or timer)
+sudo systemctl status my-task.service
+
+# disable if needed 
+sudo systemctl disable my-task.timer
+```
+
+### Check logs of a service
+
+```bash
+sudo journalctl -u my-task.service
+
+# view most recent logs first
+sudo journalctl -u my-task.service -r
+
+# follow logs live
+sudo journalctl -u my-task.service -f
+```
