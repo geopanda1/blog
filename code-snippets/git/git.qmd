@@ -1,0 +1,120 @@
+---
+title: "git"
+# categories: [linux]
+# date: 2026-06-23
+---
+
+## fast-forward vs. rebase
+
+
+### 1. fast-forward (ff) merge
+
+```bash
+A --- B --- C   main
+                 \
+                  D --- E   feature
+```
+
+
+```bash
+git checkout main
+git merge feature
+```
+
+Git moves pointer forward, history is exactly preserved:
+
+```bash
+A --- B --- C --- D --- E
+                          main, feature
+```
+
+
+### 2. ff-incompatible scenario
+
+Consider the following scenario:
+
+```bash
+A --- B --- C --- F   main
+       \
+        D --- E       feature
+```
+
+Git cannot simply move the pointer forward, no obvious way to solve the merge. This leaves two options to get `D` and `E` into main:
+
+1. rebasing
+2. merge commit
+
+## 3 options to solve this
+
+### 3.1 rebase main onto feature, followed by ff
+
+```bash
+git checkout feature
+git rebase main
+```
+
+Git will
+
+1. Find commits unique to feature (D, E)
+2. Temporarily remove them
+3. Move feature to F
+4. Replay the changes
+
+Result:
+
+```bash
+A --- B --- C --- F --- D' --- E'
+```
+
+`D'` and `E'` are "new" commits (get new commit hashes)
+
+Then enables a frictionless (fast-forward) merge:
+
+```bash
+git checkout main
+git merge feature
+```
+
+rebase simply enables a fast-forward merge.
+
+### 3.2 merge commit
+
+```bash
+git checkout main
+git merge feature
+```
+
+```bash
+A --- B --- C --- F -------- M   main
+       \                   /
+        D --- E ----------     feature
+```
+
+Advantage: branching structure is preserved, `D` and `E` remain exactly as commited.
+
+
+### 3.3 squash merge
+
+
+```bash
+git checkout main
+git merge --squash feature
+git commit
+```
+
+Resuls in 
+
+```bash
+A --- B --- C --- F --- S   main
+       \
+        D --- E            feature
+```
+
+- `S` contains everything from `D` and `E`
+- Original commits do not make it into main
+
+
+## Implications
+
+- For pulling remote changes, `git pull --rebase` is often a good choice (can be set via `git config --global pull.rebase true`, if not already the case)
+- Merges of pull requests often rely on squash merges

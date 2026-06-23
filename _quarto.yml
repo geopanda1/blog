@@ -37,6 +37,9 @@ website:
         - section: Pandas
           contents: 
             - code-snippets/pandas/00_groupyby-agg.qmd
+        - section: Git
+          contents: 
+            - code-snippets/git/git.qmd
         - section: Linux | Misc
           contents:
             - code-snippets/linux/apt.qmd
